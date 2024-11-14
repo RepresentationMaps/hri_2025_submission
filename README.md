@@ -7,6 +7,9 @@ the HRI 2025 submission "VDB-based Spatially Grounded Semantics for Interactive 
 For this reason, this repo and all the other repos involved
 in the submission are currently anonymized.
 
+Requirements
+------------
+
 In order to run the demo, we invite the user to download the
 following (anonymized) GitHub repos:
 
@@ -43,9 +46,13 @@ Building the demo
 
 1. In case this repo is still anonymized, download the required repos listed above.
 2. Clone (or download, if anonymized) this repo.
-3. Clone [`OpenVDB`](https://github.com/AcademySoftwareFoundation/openvdb)
+3. Change folder, moving inside of the one created by cloning (or extracting from 
+	the anonymous version download) this repo: `$ cd hri_2025_submission`.
+4. Clone [`OpenVDB`](https://github.com/AcademySoftwareFoundation/openvdb)
 	from github in this folder: `$ git clone https://github.com/AcademySoftwareFoundation/openvdb.git && cd openvdb && git checkout v11.0.0 && cd ..`.
-4. Build the demo docker image: `$ docker build . -t vdbsemantics:vdbsemantics`.
+5. Create a new `src` folder: `$ mkdir src`.
+6. Move inside `src` the five previously cloned/downloaded folders required to run the demo.
+7. Build the demo docker image: `$ docker build . -t vdbsemantics:vdbsemantics`.
 
 Running the demo
 ----------------
@@ -54,7 +61,7 @@ Running the demo
 2. Run the simulation script, starting:
 	- The `representation_manager` node and the `reg_of_space_server` node.
 	- Rviz, already set to visualize the simulation results (including the `simulation_player` panel).
-3. Execute the docker container another terminal: `$ docker exec -it vdbsemantics bash`.
+3. Execute the docker container in another terminal: `$ docker exec -it vdbsemantics bash`.
 4. Use the second terminal to start/stop plugins. For instance:  
 	`ros2 service call /add_plugin representation_manager/srv/AddPlugin "plugin_name: 'PluginBoxTest' threaded: false"`.
 	**Important:** multithreading behaviour not implemented yet.
