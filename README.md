@@ -49,9 +49,33 @@ Building the demo
 3. Change folder, moving inside of the one created by cloning (or extracting from 
 	the anonymous version download) this repo: `$ cd hri_2025_submission`.
 4. Clone [`OpenVDB`](https://github.com/AcademySoftwareFoundation/openvdb)
-	from github in this folder: `$ git clone https://github.com/AcademySoftwareFoundation/openvdb.git && cd openvdb && git checkout v11.0.0 && cd ..`.
+	from github in this folder: `$ git clone https://github.com/AcademySoftwareFoundation/openvdb.git && cd openvdb && git checkout v11.0.0 && cd ..`
 5. Create a new `src` folder: `$ mkdir src`.
 6. Move inside `src` the five previously cloned/downloaded folders required to run the demo.
+	At this point, you should have the following folder structure:
+	```console
+		hri_2025_submission
+		├── Dockerfile
+		├── docker_script.sh
+		├── ETHICAL_STATEMENT.md
+		├── hri_2025.rviz
+		├── LICENSE
+		├── MAINTENANCE_NOTE.md
+		├── openvdb
+		├── README.md
+		├── res
+		│	├── hri_2025_demo.gif
+		│	├── rviz_simulation_simulation_player.png
+		│	├── simulation_player_start_sim.png
+		│	└── simulation_player_step.png
+		├── run_simulation.sh
+		└── src
+		    ├── reg_of_space_server
+		    ├── representation_manager
+		    ├── representation_plugins
+		    ├── simulation_player
+		    └── vdb2pc
+	```
 7. Build the demo docker image: `$ docker build . -t vdbsemantics:vdbsemantics`.
 
 Running the demo
