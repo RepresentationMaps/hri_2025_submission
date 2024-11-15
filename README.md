@@ -1,7 +1,7 @@
 VDB-based Spatially Grounded Semantics for Interactive Robots
 =============================================================
 
-Hi! Here you can find the description of how to run the quick
+Hi! Here you can find the description of how to run the
 demo we have prepared for this contribution. This is part of
 the HRI 2025 submission "VDB-based Spatially Grounded Semantics for Interactive Robots."
 For this reason, this repo and all the other repos involved
@@ -82,12 +82,15 @@ Running the demo
 ----------------
 
 1. Run the docker using the provided utility script: `$ ./docker_script.sh -it --name vdbsemantics vdbsemantics:vdbsemantics bash`.
-2. Run the simulation script, starting:
+2. Run the simulation script `$ bash run_simulation.sh`, starting:
 	- The `representation_manager` node and the `reg_of_space_server` node.
 	- Rviz, already set to visualize the simulation results (including the `simulation_player` panel).
 3. Execute the docker container in another terminal: `$ docker exec -it vdbsemantics bash`.
 4. Use the second terminal to start/stop plugins. For instance:  
-	`ros2 service call /add_plugin representation_manager/srv/AddPlugin "plugin_name: 'PluginBoxTest' threaded: false"`.
+	`ros2 service call /add_plugin representation_manager/srv/AddPlugin "plugin_name: 'PluginBoxTest'
+	threaded: false"`.
+	**Important:** rather than copy-pasting this instruction, use tabbing to autocomplete the plugin name.
+	This will enforce the service message to have the correct format.
 	**Important:** multithreading behaviour not implemented yet.
 5. By default, the demo runs continously at 20 Hz. Through the `simulation_player` you can start, stop and advance
 	by a custom step-size (in seconds) the simulation. 
@@ -106,15 +109,3 @@ Running the demo
 	At this point, by using the `Forward` and `Backward` buttons, you can visualize step by step the
 	advancement of the different instances, and how new IDs are added and removed via the 
 	different voxel colors. 
-
-
-Demo performance
-----------------
-
-The demo is set to run at 20 Hz. The demo is set to stress the whole architecture by inserting and removing
-spatial representation of instances at every loop. The performance can be evaluated by checking the average
-CPU and memory load. On a 11th Gen Intel(R) Core(TM) i7-11800H @ 2.30GHz, the demo requires on average
-170% CPU and 64 MB of memory.
-
-
-
