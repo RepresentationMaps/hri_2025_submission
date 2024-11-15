@@ -13,7 +13,7 @@ run_node representation_manager representation_manager_node
 
 sleep 3
 
-echo "Starting RViz2 with configuration file: my_config.rviz"
+echo "Starting RViz2 with configuration file: hri_2025.rviz"
 rviz2 -d /home/user/ws/rviz/hri_2025.rviz
 
 echo "Press [CTRL+C] to stop the nodes and exit."
